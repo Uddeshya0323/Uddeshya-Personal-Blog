@@ -73,7 +73,7 @@ function BlogPostCard() {
                         </h1>
 
                         {/* Blog Description  */}
-                        <p
+                        <div
                           className="leading-relaxed mb-3"
                           style={{
                             color:
@@ -84,7 +84,7 @@ function BlogPostCard() {
                         >
                           {item.blogs.content}
                           {/* Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat. */}
-                        </p>
+                        </div>
                       </div>
                     </div>
                   );
