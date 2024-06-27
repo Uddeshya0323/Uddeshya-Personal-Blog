@@ -72,15 +72,23 @@ function AllBlogs() {
                                                     }}>
                                                         {item.blogs.title}
                                                     </h1>
+                                                     
+                                                    <h1 className="title-font text-lg font-bold text-gray-900 mb-3" style={{
+                                                        color: mode === 'dark'
+                                                            ? 'rgb(226, 232, 240)'
+                                                            : ' rgb(30, 41, 59)'
+                                                    }}>
+                                                        {item.blogs.content}
+                                                    </h1>
 
                                                     {/* Blog Description  */}
-                                                    <span className="leading-relaxed mb-3" style={{
+                                                    {/* <span className="leading-relaxed mb-3" style={{
                                                         color: mode === 'dark'
                                                             ? 'rgb(226, 232, 240)'
                                                             : ' rgb(30, 41, 59)'
                                                     }}>
                                                        {item.blogs.content}
-                                                    </span>
+                                                    </span> */}
                                                 </div>
                                             </div>
                                         </div>
