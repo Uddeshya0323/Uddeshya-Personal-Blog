@@ -189,6 +189,20 @@ function CreateBlog() {
                 {/* Four Editor  */}
                 <Editor
                     apiKey='8nvfe3f068np1rkecwzjsxv1e32dp65lqo6wckmohphcqooz'
+                    onEditorChange={(newValue, editor) => {
+                        setBlogs({ blogs, content: newValue });
+                        settext(editor.getContent({ format: 'text' }));
+                    }}
+                    onInit={(evt, editor) => {
+                        settext(editor.getContent({ format: 'text' }));
+                    }}
+                    init={{
+                        plugins: 'a11ychecker advcode advlist advtable anchor autocorrect autolink autoresize autosave casechange charmap checklist code codesample directionality editimage emoticons export footnotes formatpainter fullscreen help image importcss inlinecss insertdatetime link linkchecker lists media mediaembed mentions mergetags nonbreaking pagebreak pageembed permanentpen powerpaste preview quickbars save searchreplace table tableofcontents template  tinydrive tinymcespellchecker typography visualblocks visualchars wordcount'
+                    }}
+                />
+
+                {/* <Editor
+                    apiKey='8nvfe3f068np1rkecwzjsxv1e32dp65lqo6wckmohphcqooz'
                     init={{
                       plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss markdown',
                       toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
@@ -210,7 +224,7 @@ function CreateBlog() {
                     // init={{
                     //     plugins: 'a11ychecker advcode advlist advtable anchor autocorrect autolink autoresize autosave casechange charmap checklist code codesample directionality editimage emoticons export footnotes formatpainter fullscreen help image importcss inlinecss insertdatetime link linkchecker lists media mediaembed mentions mergetags nonbreaking pagebreak pageembed permanentpen powerpaste preview quickbars save searchreplace table tableofcontents template  tinydrive tinymcespellchecker typography visualblocks visualchars wordcount'
                     // }}
-                />
+                /> */}
 
                 {/* Five Submit Button  */}
                 <Button className=" w-full mt-5"
