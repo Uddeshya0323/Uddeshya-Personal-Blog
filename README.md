@@ -9,3 +9,4 @@ Currently, two official plugins are available:
 # Uddeshya_Personal_Blog
 # Uddeshya_Personal_Blog
 "# Uddeshya-Personal-Blog" 
+"# Uddeshya-Personal-Portfolio" 
