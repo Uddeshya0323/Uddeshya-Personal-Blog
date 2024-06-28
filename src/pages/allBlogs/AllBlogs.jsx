@@ -10,6 +10,10 @@ function AllBlogs() {
     const context = useContext(myContext);
     const { mode, getAllBlog } = context;
 
+    function createMarkup(c) {
+        return { __html: c };
+      }
+
     const navigate = useNavigate();
     return (
         <Layout>
