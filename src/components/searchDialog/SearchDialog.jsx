@@ -45,7 +45,7 @@ export default function SearchDialog() {
                     </div>
 
                     {/* Blog Card  */}
-                    {/* <div className="flex justify-center flex-wrap  sm:mx-auto sm:mb-2 -mx-2  mt-4 mb-2 ">
+                    <div className="flex justify-center flex-wrap  sm:mx-auto sm:mb-2 -mx-2  mt-4 mb-2 ">
                         {
                             getAllBlog.filter((obj) => obj.blogs.title?.toLowerCase().includes(searchkey))?.map((item, index) => {
 
@@ -53,38 +53,18 @@ export default function SearchDialog() {
                                     <div key={index} className="p-2 sm:w-1/4 w-full " >
                                         <div onClick={() => naviagte(`/bloginfo/${item.id}`)} className=" container cursor-pointer mx-auto px-4 bg-gray-200 p-2 rounded-lg ">
                                             {/* Blog Thumbnail  */}
-                                            {/* <img className="w-20 mb-2 rounded-lg"
+                                            <img className="w-20 mb-2 rounded-lg"
                                                 src={item?.thumbnail} alt="" />
 
                                             {/* Blog Date  */}
-                                            {/* <p className="w-40 text-sm">{item?.date}</p> */}
+                                            <p className="w-40 text-sm">{item?.date}</p>
 
                                             {/* Blog Title  */}
-                                            {/* <h1>{item?.blogs?.title}</h1>
+                                            <h1>{item?.blogs?.title}</h1>
                                         </div>
-                                    </div> */}
-                                {/* ) */} 
-                                {/* */}
-                                 {/* */}
-                            {/* })} */}
-                    {/* </div>  */}
-                    {/* */} 
-
-                    <div className="flex justify-center flex-wrap sm:mx-auto sm:mb-2 -mx-2 mt-4 mb-2">
-                        {getAllBlog
-                            .filter(obj => obj.blogs && obj.blogs.title && obj.blogs.title.toLowerCase().includes(searchkey.toLowerCase()))
-                            .map((item, index) => (
-                                <div key={index} className="p-2 sm:w-1/4 w-full">
-                                    <div onClick={() => navigate(`/bloginfo/${item.id}`)} className="container cursor-pointer mx-auto px-4 bg-gray-200 p-2 rounded-lg">
-                                        {/* Blog Thumbnail */}
-                                        <img className="w-20 mb-2 rounded-lg" src={item?.thumbnail} alt="" />
-                                        {/* Blog Date */}
-                                        <p className="w-40 text-sm">{item?.date}</p>
-                                        {/* Blog Title */}
-                                        <h1>{item?.blogs?.title}</h1>
                                     </div>
-                                </div>
-                            ))}
+                                )
+                            })}
                     </div>
 
                     {/* Heading  */}
