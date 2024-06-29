@@ -86,7 +86,7 @@ function BlogPostCard() {
 
                         <div className="content">
                           <div
-                            className={`[&> h1]:text-[32px] [&>h1]:font-bold  [&>h1]:mb-2.5
+                            className={`[&> h1]:text-[32px] [&>h1]:font-bold  [&>h1]:mb-2.5 
                         ${
                           mode === "dark"
                             ? "[&>h1]:text-[#ff4d4d]"

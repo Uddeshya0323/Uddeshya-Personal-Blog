@@ -18,12 +18,13 @@ function AllBlogs() {
 
       // Helper function to truncate content
       function createMarkup(content) {
-        const words = content.split(' ');
+        const words = content.split(" ");
         if (words.length > 20) {
-            return { __html: words.slice(0, 20).join(' ') + '...' };
+          return { __html: words.slice(0, 10).join(" ") + "..." };
         }
         return { __html: content };
-    }
+      }
+    
 
 
     return (
@@ -38,67 +39,68 @@ function AllBlogs() {
                         </h1>
                     </div>
                     {/* Main Content  */}
-                    <div className="flex flex-wrap justify-center -m-4 mb-5">
-                        {/* Card 1  */}
-                        {getAllBlog.length > 0
-                            ?
-                            <>
-                                {getAllBlog.map((item, index) => {
-                                    const { thumbnail, id, date } = item
-                                    console.log(item)
-                                    return (
-                                        <div className="p-4 md:w-1/3" key={index}>
-                                            <div
-                                                style={{
-                                                    background: mode === 'dark'
-                                                        ? 'rgb(30, 41, 59)'
-                                                        : 'white',
-                                                    borderBottom: mode === 'dark'
-                                                        ?
-                                                        ' 4px solid rgb(226, 232, 240)'
-                                                        : ' 4px solid rgb(30, 41, 59)'
-                                                }}
-                                                className={`h-full shadow-lg  hover:-translate-y-1 cursor-pointer hover:shadow-gray-400
-                                                ${mode === 'dark'
-                                                    ? 'shadow-gray-700'
-                                                    : 'shadow-xl'
-                                                    } 
-                                                rounded-xl overflow-hidden`} 
-                                            >
-                                                {/* Blog Thumbnail  */}
-                                                <img onClick={() => navigate(`/bloginfo/${id}`)} className=" w-full" src={thumbnail} alt="blog" />
+                    <div className="flex  flex-wrap justify-around  mb-5 gap-10 md:h-[500px]">
+            {/* Card 1  */}
+            {getAllBlog.length > 0 ? (
+              <>
+                {" "}
+                {getAllBlog.map((item, index) => {
+                  const { thumbnail, date, id } = item;
+                  return (
+                    <div
+                      style={{
+                        background:
+                          mode === "dark" ? "rgb(30, 41, 59)" : "white",
+                        borderBottom:
+                          mode === "dark"
+                            ? " 4px solid rgb(226, 232, 240)"
+                            : " 4px solid rgb(30, 41, 59)",
+                      }}
+                      className={`h-full shadow-lg w-96 hover:-translate-y-1 py-10  center cursor-pointer hover:shadow-gray-400
+              ${mode === "dark" ? "shadow-gray-700" : "shadow-xl"} 
+              rounded-xl overflow-hidden`}
+                    >
+                      <div className="w-full h-60 bg-contain p-5 flex justify-center items-center">
+                        {/* Blog Thumbnail */}
+                        <img
+                          onClick={() => navigate(`/bloginfo/${item.id}`)}
+                          className="w-full h-full object-cover"
+                          src={item.thumbnail}
+                          alt="blog"
+                        />
+                      </div>
 
-                                                {/* Top Items  */}
-                                                <div className="p-6">
-                                                    {/* Blog Date  */}
-                                                    <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1" style={{
-                                                        color: mode === 'dark'
-                                                            ? 'rgb(226, 232, 240)'
-                                                            : ' rgb(30, 41, 59)'
-                                                    }}>
-                                                        {date}
-                                                    </h2>
+                      {/* Top Items  */}
+                      <div className="p-6">
+                        {/* Blog Date  */}
+                        <h2
+                          className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"
+                          style={{
+                            color:
+                              mode === "dark"
+                                ? "rgb(226, 232, 240)"
+                                : " rgb(30, 41, 59)",
+                          }}
+                        >
+                          {date}
+                        </h2>
 
-                                                    {/* Blog Title  */}
-                                                    <h1 className="title-font text-lg font-bold text-gray-900 mb-3" style={{
-                                                        color: mode === 'dark'
-                                                            ? 'rgb(226, 232, 240)'
-                                                            : ' rgb(30, 41, 59)'
-                                                    }}>
-                                                        {item?.blogs?.title}
-                                                    </h1>
-                                                     
-                                                    {/* <h1 className="title-font text-lg font-bold text-gray-900 mb-3" style={{
-                                                        color: mode === 'dark'
-                                                            ? 'rgb(226, 232, 240)'
-                                                            : ' rgb(30, 41, 59)'
-                                                    }}>
-                                                        {item.blogs.content}
-                                                    </h1> */}
+                        {/* Blog Title  */}
+                        <h1
+                          className="title-font text-lg font-bold text-gray-900 mb-3"
+                          style={{
+                            color:
+                              mode === "dark"
+                                ? "rgb(226, 232, 240)"
+                                : " rgb(30, 41, 59)",
+                          }}
+                        >
+                          {item?.blogs?.title}
+                        </h1>
 
-                                                    <div className="content">
-                <div
-                  className={`[&> h1]:text-[32px] [&>h1]:font-bold  [&>h1]:mb-2.5
+                        <div className="content">
+                          <div
+                            className={`[&> h1]:text-[32px] [&>h1]:font-bold  [&>h1]:mb-2.5 
                         ${
                           mode === "dark"
                             ? "[&>h1]:text-[#ff4d4d]"
@@ -170,30 +172,37 @@ function AllBlogs() {
 
                         [&>img]:rounded-lg
                         `}
-                        dangerouslySetInnerHTML={createMarkup(item?.blogs?.content)}
-                ></div>
-              </div>
+                            dangerouslySetInnerHTML={createMarkup(
+                              item?.blogs?.content
+                            )}
+                          ></div>
+                        </div>
 
-                                                    {/* Blog Description  */}
-                                                    {/* <span className="leading-relaxed mb-3" style={{
-                                                        color: mode === 'dark'
-                                                            ? 'rgb(226, 232, 240)'
-                                                            : ' rgb(30, 41, 59)'
-                                                    }}>
-                                                       {item.blogs.content}
-                                                    </span> */}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    )
-                                })}
-                            </>
-                            :
-                            <>
-                                <h1 className='text-xl font-bold'>Not Found</h1>
-                            </>
-                        }
+                        {/* Blog Description  */}
+                        {/* <span
+                          className="leading-relaxed mb-3"
+                          style={{
+                            color:
+                              mode === "dark"
+                                ? "rgb(226, 232, 240)"
+                                : " rgb(30, 41, 59)",
+                          }}
+                        >
+                          {item.blogs.content} */}
+                        {/* Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat. */}
+                        {/* </span> */}
+                      </div>
                     </div>
+                  );
+                })}{" "}
+              </>
+            ) : (
+              <>
+                {" "}
+                <h1>Not Found</h1>
+              </>
+            )}
+          </div>
                 </div>
             </section >
         </Layout >
