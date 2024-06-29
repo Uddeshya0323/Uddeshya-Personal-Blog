@@ -47,7 +47,7 @@ export default function SearchDialog() {
                     {/* Blog Card  */}
                     <div className="flex justify-center flex-wrap  sm:mx-auto sm:mb-2 -mx-2  mt-4 mb-2 ">
                         {
-                            getAllBlog.filter((obj) => obj.blogs.title.toLowerCase().includes(searchkey)).map((item, index) => {
+                            getAllBlog.filter((obj) => obj.blogs.title?.toLowerCase().includes(searchkey))?.map((item, index) => {
 
                                 return (
                                     <div key={index} className="p-2 sm:w-1/4 w-full " >
