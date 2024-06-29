@@ -84,7 +84,7 @@ function BlogPostCard() {
                                 : " rgb(30, 41, 59)",
                           }}
                         >
-                          {item?.title}
+                          {item?.blogs?.title}
                         </h1>
 
                         <div className="content">
