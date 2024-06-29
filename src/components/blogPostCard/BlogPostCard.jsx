@@ -8,9 +8,18 @@ function BlogPostCard() {
   const { mode, getAllBlog } = context;
 
   
-  function createMarkup(c) {
-    return { __html: c };
-  }
+  // function createMarkup(c) {
+  //   return { __html: c };
+  // }
+
+  function createMarkup(content) {
+    const words = content.split(' ');
+    if (words.length > 20) {
+        return { __html: words.slice(0, 20).join(' ') + '...' };
+    }
+    return { __html: content };
+}
+
 
 
   const navigate = useNavigate();
@@ -152,9 +161,7 @@ function BlogPostCard() {
 
                         [&>img]:rounded-lg
                         `}
-                  dangerouslySetInnerHTML={createMarkup(
-                    item?.blogs?.content
-                  )}
+                        dangerouslySetInnerHTML={createMarkup(item?.blogs?.content)}
                 ></div>
               </div>
 

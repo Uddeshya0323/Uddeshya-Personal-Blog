@@ -10,11 +10,22 @@ function AllBlogs() {
     const context = useContext(myContext);
     const { mode, getAllBlog } = context;
 
-    function createMarkup(c) {
-        return { __html: c };
-      }
+    // function createMarkup(c) {
+    //     return { __html: c };
+    //   }
 
     const navigate = useNavigate();
+
+      // Helper function to truncate content
+      function createMarkup(content) {
+        const words = content.split(' ');
+        if (words.length > 20) {
+            return { __html: words.slice(0, 20).join(' ') + '...' };
+        }
+        return { __html: content };
+    }
+
+
     return (
         <Layout>
             <section className="text-gray-600 body-font">
@@ -159,9 +170,7 @@ function AllBlogs() {
 
                         [&>img]:rounded-lg
                         `}
-                  dangerouslySetInnerHTML={createMarkup(
-                    item?.blogs?.content
-                  )}
+                        dangerouslySetInnerHTML={createMarkup(item?.blogs?.content)}
                 ></div>
               </div>
 
