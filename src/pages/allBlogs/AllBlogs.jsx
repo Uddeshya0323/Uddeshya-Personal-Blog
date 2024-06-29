@@ -85,7 +85,7 @@ function AllBlogs() {
                                                             ? 'rgb(226, 232, 240)'
                                                             : ' rgb(30, 41, 59)'
                                                     }}>
-                                                        {item?.title}
+                                                        {item?.blogs.blogs.blogs.title}
                                                     </h1>
                                                      
                                                     {/* <h1 className="title-font text-lg font-bold text-gray-900 mb-3" style={{

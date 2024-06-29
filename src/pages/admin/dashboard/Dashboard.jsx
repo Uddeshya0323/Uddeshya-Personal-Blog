@@ -213,7 +213,7 @@ function Dashboard() {
                               }}
                               className="px-6 py-4"
                             >
-                              {item?.title}
+                              {item?.blogs?.blogs?.blogs?.title}
                             </td>
                             {/* Blog Category  */}
                             <td
