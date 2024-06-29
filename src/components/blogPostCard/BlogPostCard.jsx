@@ -7,28 +7,25 @@ function BlogPostCard() {
   const context = useContext(myContext);
   const { mode, getAllBlog } = context;
 
-  
   // function createMarkup(c) {
   //   return { __html: c };
   // }
 
   function createMarkup(content) {
-    const words = content.split(' ');
+    const words = content.split(" ");
     if (words.length > 20) {
-        return { __html: words.slice(0, 20).join(' ') + '...' };
+      return { __html: words.slice(0, 10).join(" ") + "..." };
     }
     return { __html: content };
-}
-
-
+  }
 
   const navigate = useNavigate();
   return (
     <div>
       <section className="text-gray-600 body-font">
-        <div className="container px-5  py-10 mx-auto max-w-7xl ">
+        <div className="container px-5  py-10  mx-auto max-w-7xl ">
           {/* Main Content  */}
-          <div className="flex  flex-wrap justify-around  mb-5">
+          <div className="flex  flex-wrap justify-around  mb-5 gap-10 md:h-[500px]">
             {/* Card 1  */}
             {getAllBlog.length > 0 ? (
               <>
@@ -49,12 +46,12 @@ function BlogPostCard() {
               ${mode === "dark" ? "shadow-gray-700" : "shadow-xl"} 
               rounded-xl overflow-hidden`}
                     >
-                      <div className="w-full h-full flex justify-center items-center">
-                        {/* Blog Thumbnail  */}
+                      <div className="w-full h-60 bg-contain p-5 flex justify-center items-center">
+                        {/* Blog Thumbnail */}
                         <img
-                          onClick={() => navigate(`/bloginfo/${id}`)}
-                          className="w-72 "
-                          src={thumbnail}
+                          onClick={() => navigate(`/bloginfo/${item.id}`)}
+                          className="w-full h-full object-cover"
+                          src={item.thumbnail}
                           alt="blog"
                         />
                       </div>
@@ -88,8 +85,8 @@ function BlogPostCard() {
                         </h1>
 
                         <div className="content">
-                <div
-                  className={`[&> h1]:text-[32px] [&>h1]:font-bold  [&>h1]:mb-2.5
+                          <div
+                            className={`[&> h1]:text-[32px] [&>h1]:font-bold  [&>h1]:mb-2.5
                         ${
                           mode === "dark"
                             ? "[&>h1]:text-[#ff4d4d]"
@@ -161,10 +158,11 @@ function BlogPostCard() {
 
                         [&>img]:rounded-lg
                         `}
-                        dangerouslySetInnerHTML={createMarkup(item?.blogs?.content)}
-                ></div>
-              </div>
-
+                            dangerouslySetInnerHTML={createMarkup(
+                              item?.blogs?.content
+                            )}
+                          ></div>
+                        </div>
 
                         {/* Blog Description  */}
                         {/* <span
@@ -177,7 +175,7 @@ function BlogPostCard() {
                           }}
                         >
                           {item.blogs.content} */}
-                          {/* Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat. */}
+                        {/* Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat. */}
                         {/* </span> */}
                       </div>
                     </div>

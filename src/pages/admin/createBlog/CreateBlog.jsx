@@ -190,7 +190,7 @@ function CreateBlog() {
                 <Editor
                     apiKey='8nvfe3f068np1rkecwzjsxv1e32dp65lqo6wckmohphcqooz'
                     onEditorChange={(newValue, editor) => {
-                        setBlogs({ blogs, content: newValue });
+                        setBlogs({ ...blogs, content: newValue });
                         settext(editor.getContent({ format: 'text' }));
                     }}
                     onInit={(evt, editor) => {
