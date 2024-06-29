@@ -54,13 +54,13 @@ export default function SearchDialog() {
                                         <div onClick={() => naviagte(`/bloginfo/${item.id}`)} className=" container cursor-pointer mx-auto px-4 bg-gray-200 p-2 rounded-lg ">
                                             {/* Blog Thumbnail  */}
                                             <img className="w-20 mb-2 rounded-lg"
-                                                src={item.thumbnail} alt="" />
+                                                src={item?.thumbnail} alt="" />
 
                                             {/* Blog Date  */}
-                                            <p className="w-40 text-sm">{item.date}</p>
+                                            <p className="w-40 text-sm">{item?.date}</p>
 
                                             {/* Blog Title  */}
-                                            <h1>{item.blogs.title}</h1>
+                                            <h1>{item?.blogs?.title}</h1>
                                         </div>
                                     </div>
                                 )
